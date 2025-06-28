@@ -1,11 +1,11 @@
 import { Routes,Route, Navigate} from 'react-router-dom';
 import'./App.css';
-import Navbar from './components/Navbar';
-import HomePage from './components/HomePage';
-import SignUpPage from './components/SignUpPage';
-import LoginPage from './components/LoginPage';
-import SettingsPage from './components/SettingsPage';
-import ProfilePage from './components/ProfilePage';
+import Navbar from './Pages/Navbar';
+import HomePage from './Pages/HomePage';
+import SignUpPage from './Pages/SignUpPage';
+import LoginPage from './Pages/LoginPage';
+import SettingsPage from './Pages/SettingsPage';
+import ProfilePage from './Pages/ProfilePage';
 import { axiosInstance } from './lib/axios';
 import { Loader } from 'lucide-react';
 import { useAuthStore } from './store/useAuthStore';
