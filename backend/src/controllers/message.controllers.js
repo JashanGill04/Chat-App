@@ -73,4 +73,4 @@ if(receiverSocketId){
     console.error("Error in sendMessage: ", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
-}
+};

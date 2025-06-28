@@ -42,6 +42,6 @@ io.emit("getOnlineUsers",Object.keys(userSocketMap));
         io.emit("getOnlineUsers",Object.keys(userSocketMap));
 
 
-    })
-})
+    });
+});
 export {io,app,server};
