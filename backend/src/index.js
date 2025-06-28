@@ -33,6 +33,18 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+app._router.stack.forEach((middleware) => {
+  if (middleware.route) {
+    console.log("Registered route:", middleware.route.path);
+  }
+});
+
+
+
+
+
+
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
