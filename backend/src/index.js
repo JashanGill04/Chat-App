@@ -19,11 +19,6 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use((req, res, next) => {
-  console.log("Incoming request:", req.method, req.url);
-  next();
-});
-
 app.use(
   cors({
     origin: "http://localhost:5173",
@@ -33,17 +28,6 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-app._router.stack.forEach((middleware) => {
-  if (middleware.route) {
-    console.log("Registered route:", middleware.route.path);
-  }
-});
-
-
-
-
-
-
 
 
 if (process.env.NODE_ENV === "production") {
