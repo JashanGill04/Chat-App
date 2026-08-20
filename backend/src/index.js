@@ -48,7 +48,10 @@ const httpRequestDuration = new promClient.Histogram({
 });
 
 app.get('/metrics', (req, res, next) => {
-  if (req.headers['x-metrics-token'] !== METRICS_TOKEN) {
+  const authHeader = req.headers.authorization;
+  
+  // Check if the header exists and matches "Bearer <YOUR_TOKEN>"
+  if (!authHeader || authHeader !== `Bearer ${METRICS_TOKEN}`) {
     return res.status(401).send('Unauthorized');
   }
   next();
@@ -56,7 +59,6 @@ app.get('/metrics', (req, res, next) => {
   res.set('Content-Type', register.contentType);
   res.end(await register.metrics());
 });
-
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
